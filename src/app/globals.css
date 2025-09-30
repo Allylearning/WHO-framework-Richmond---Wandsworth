@@ -90,8 +90,6 @@
   }
 }
 
-
-
 /* Legend key classes for page.tsx */
 .legend-key { @apply h-4 w-4 rounded-full; }
 .legend-key--sexual { background-color: #eeb33e !important; }
