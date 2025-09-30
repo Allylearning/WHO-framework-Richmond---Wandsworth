@@ -1,7 +1,6 @@
-
 'use client';
 
-import { useState, useMemo, useCallback, useRef, useEffect } from 'react';
+import { useState, useMemo, useCallback, useRef } from 'react';
 import { WhoFrameworkDiagram } from '@/components/who-framework-diagram';
 import { SectionDetails } from '@/components/section-details';
 import { frameworkSections, type FrameworkSection, foundationalPrinciples } from '@/lib/framework-data';
@@ -16,11 +15,11 @@ const Legend = () => (
     <Card className="w-full mt-4 bg-card/80 text-sm">
         <CardContent className="p-4 space-y-2">
             <div className="flex items-center gap-2">
-                <div className="h-4 w-4 rounded-full bg-card" />
+                <div className="legend-key legend-key--sexual" />
                 <p>Sexual health intervention areas</p>
             </div>
             <div className="flex items-center gap-2">
-                <div className="h-4 w-4 rounded-full bg-accent" />
+                <div className="legend-key legend-key--reproductive" />
                 <p>Reproductive health intervention areas</p>
             </div>
             <div className="flex items-center gap-2">
@@ -81,7 +80,6 @@ const FoundationalPrinciples = () => {
 export default function Home() {
   const [activeSectionId, setActiveSectionId] = useState<number | null>(null);
   const [viewedSectionIds, setViewedSectionIds] = useState<Set<number>>(new Set());
-  const [completionMessageSent, setCompletionMessageSent] = useState(false);
   const isMobile = useIsMobile();
 
   const activeSectionInfo = useMemo(() => {
@@ -99,13 +97,6 @@ export default function Home() {
     setActiveSectionId(section.id);
     setViewedSectionIds(prev => new Set(prev).add(section.id));
   }, []);
-
-  useEffect(() => {
-    if (!completionMessageSent && viewedSectionIds.size === frameworkSections.length) {
-      window.parent.postMessage('complete', '*');
-      setCompletionMessageSent(true);
-    }
-  }, [viewedSectionIds, completionMessageSent]);
 
   const PrinciplesComponent = <FoundationalPrinciples />;
 
