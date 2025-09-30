@@ -90,11 +90,9 @@
   }
 }
 
-.h-4.w-4.rounded-full.bg-card {
-    background: #eeb43e;
-    border: solid 1px #003e85;
-}
-.h-4.w-4.rounded-full.bg-card {
-    background: #eeb43e !important;
-    border: solid 1px #003e85;
-}
+
+
+/* Legend key classes for page.tsx */
+.legend-key { @apply h-4 w-4 rounded-full; }
+.legend-key--sexual { background-color: #eeb33e !important; }
+.legend-key--reproductive { background-color: #479ddd !important; }
