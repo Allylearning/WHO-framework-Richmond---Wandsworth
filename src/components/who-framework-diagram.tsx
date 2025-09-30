@@ -90,7 +90,7 @@ const PinwheelSegment = ({
           <div
             className={cn(
               'flex flex-col items-center justify-center text-center w-full h-full p-1 transition-colors duration-300',
-               isPinkSegment ? 'text-accent-foreground' : 'text-card-foreground',
+               'text-accent-foreground',
             )}
           >
             <p className={cn(
