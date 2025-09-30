@@ -72,9 +72,9 @@ const PinwheelSegment = ({
         className={cn(
           'stroke-background stroke-2 transition-all duration-300',
            isPinkSegment
-            ? 'fill-accent group-hover:fill-accent-hover active:fill-accent-hover'
-            : 'fill-card group-hover:fill-card-hover active:fill-card-hover',
-           isActive && (isPinkSegment ? 'fill-accent-hover' : 'fill-card-hover')
+            ? 'fill-[#479ddd] group-hover:fill-[#479ddd] active:fill-[#479ddd]'
+            : 'fill-[#eeb33e] group-hover:fill-[#eeb33e] active:fill-[#eeb33e]',
+           isActive && (isPinkSegment ? 'fill-[#479ddd]' : 'fill-[#eeb33e]')
         )}
       />
       <g transform={`translate(${iconX}, ${iconY}) rotate(${-rotation - wheelRotation})`}
