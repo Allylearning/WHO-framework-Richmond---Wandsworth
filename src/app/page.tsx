@@ -16,11 +16,11 @@ const Legend = () => (
     <Card className="w-full mt-4 bg-card/80 text-sm">
         <CardContent className="p-4 space-y-2">
             <div className="flex items-center gap-2">
-                <div className="h-4 w-4 rounded-full bg-[#eeb33e]" />
+                <div className="h-4 w-4 rounded-full" style={{ backgroundColor: '#eeb33e' }} />
                 <p>Sexual health intervention areas</p>
             </div>
             <div className="flex items-center gap-2">
-                <div className="h-4 w-4 rounded-full bg-[#479ddd]" />
+                <div className="h-4 w-4 rounded-full" style={{ backgroundColor: '#479ddd' }} />
                 <p>Reproductive health intervention areas</p>
             </div>
             <div className="flex items-center gap-2">
