@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useState, useMemo, useCallback, useRef } from 'react';
@@ -16,11 +15,11 @@ const Legend = () => (
     <Card className="w-full mt-4 bg-card/80 text-sm">
         <CardContent className="p-4 space-y-2">
             <div className="flex items-center gap-2">
-                <div className="h-4 w-4 rounded-full" style={{ backgroundColor: '#eeb33e' }} />
+                <div className="legend-key legend-key--sexual" />
                 <p>Sexual health intervention areas</p>
             </div>
             <div className="flex items-center gap-2">
-                <div className="h-4 w-4 rounded-full" style={{ backgroundColor: '#479ddd' }} />
+                <div className="legend-key legend-key--reproductive" />
                 <p>Reproductive health intervention areas</p>
             </div>
             <div className="flex items-center gap-2">
