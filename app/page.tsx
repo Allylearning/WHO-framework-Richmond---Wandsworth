@@ -80,6 +80,7 @@ const FoundationalPrinciples = () => {
 export default function Home() {
   const [activeSectionId, setActiveSectionId] = useState<number | null>(null);
   const [viewedSectionIds, setViewedSectionIds] = useState<Set<number>>(new Set());
+  const [completionMessageSent, setCompletionMessageSent] = useState(false);
   const isMobile = useIsMobile();
 
   const activeSectionInfo = useMemo(() => {
@@ -97,6 +98,13 @@ export default function Home() {
     setActiveSectionId(section.id);
     setViewedSectionIds(prev => new Set(prev).add(section.id));
   }, []);
+
+  useEffect(() => {
+    if (!completionMessageSent && viewedSectionIds.size === frameworkSections.length) {
+      window.parent.postMessage('complete', '*');
+      setCompletionMessageSent(true);
+    }
+  }, [viewedSectionIds, completionMessageSent]);
 
   const PrinciplesComponent = <FoundationalPrinciples />;
 
