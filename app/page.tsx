@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo, useCallback, useRef } from 'react';
+import { useState, useMemo, useCallback, useRef, useEffect } from 'react';
 import { WhoFrameworkDiagram } from '@/components/who-framework-diagram';
 import { SectionDetails } from '@/components/section-details';
 import { frameworkSections, type FrameworkSection, foundationalPrinciples } from '@/lib/framework-data';
