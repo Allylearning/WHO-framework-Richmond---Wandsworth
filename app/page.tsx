@@ -15,11 +15,11 @@ const Legend = () => (
     <Card className="w-full mt-4 bg-card/80 text-sm">
         <CardContent className="p-4 space-y-2">
             <div className="flex items-center gap-2">
-                <div className="legend-key legend-key--sexual" />
+                <div className="legend-key legend-key--sexual border" />
                 <p>Sexual health intervention areas</p>
             </div>
             <div className="flex items-center gap-2">
-                <div className="legend-key legend-key--reproductive" />
+                <div className="legend-key legend-key--reproductive border" />
                 <p>Reproductive health intervention areas</p>
             </div>
             <div className="flex items-center gap-2">
@@ -49,7 +49,7 @@ const FoundationalPrinciples = () => {
     return (
         <div className="w-full mt-8">
             <h2 className="text-xl font-bold text-center mb-4 text-primary-foreground">Foundational Guiding Principles</h2>
-            <p className="text-center text-xs text-muted-foreground mb-2">
+            <p className="text-center text-xs text-primary-foreground mb-2">
                 Scroll through to see them all.
             </p>
             <Carousel

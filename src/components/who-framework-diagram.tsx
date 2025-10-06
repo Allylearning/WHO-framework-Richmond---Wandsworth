@@ -184,7 +184,7 @@ export function WhoFrameworkDiagram({
         {/* Visual outer ring */}
         <circle cx={size/2} cy={size/2} r={size * 0.483} fill="hsl(var(--outer-ring))" stroke="hsl(var(--border))" strokeWidth="1"></circle>
 
-        <text className={cn("fill-background font-semibold text-white", isMobile ? "text-[10px]" : "text-lg" )} dy={isMobile ? "-2" : "-4"} dominantBaseline="middle">
+        <text className={cn("fill-current font-semibold text-primary", isMobile ? "text-[10px]" : "text-lg" )} dy={isMobile ? "-2" : "-4"} dominantBaseline="middle">
             <textPath href={`#${outerRingTextPathId}`} startOffset="50%" textAnchor="middle" letterSpacing={isMobile ? "0.2" : "0.5"}>
               Cultural & Social norms &nbsp; • &nbsp; Human rights &nbsp; • &nbsp; Gender & socioeconomic inequalities &nbsp; • &nbsp; Laws & policies
             </textPath>
