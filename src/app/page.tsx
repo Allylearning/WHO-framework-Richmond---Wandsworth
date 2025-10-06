@@ -49,6 +49,9 @@ const FoundationalPrinciples = () => {
     return (
         <div className="w-full mt-8">
              <h2 className="text-xl font-bold text-center mb-4 text-primary-foreground">Foundational Guiding Principles</h2>
+             <p className="text-center text-xs text-muted-foreground mb-2">
+                Scroll through to see them all.
+            </p>
             <Carousel
                 plugins={[plugin.current]}
                 className="w-full"
