@@ -11,9 +11,12 @@ export function SectionDetails({ section, isPink }: SectionDetailsProps) {
   if (!section) {
     return (
       <Card className="flex h-full min-h-[400px] w-full items-center justify-center rounded-xl border-dashed bg-card">
-        <div className="text-center text-muted-foreground">
-          <p className="text-lg font-medium">Select a section</p>
-          <p>Click on a segment in the diagram to learn more.</p>
+        <div className="text-center text-muted-foreground px-6">
+          <p className="text-2xl font-semibold leading-relaxed text-primary">
+            Select a section &ndash; click on the{' '}
+            <span className="font-semibold text-[#eeb33e]">orange</span> and{' '}
+            <span className="font-semibold text-[#479ddd]">blue</span> segments in the diagram to learn more.
+          </p>
         </div>
       </Card>
     );

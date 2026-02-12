@@ -1,13 +1,11 @@
 'use client';
 
-import { useState, useMemo, useCallback, useRef, useEffect } from 'react';
+import { useState, useMemo, useCallback, useEffect } from 'react';
 import { WhoFrameworkDiagram } from '@/components/who-framework-diagram';
 import { SectionDetails } from '@/components/section-details';
 import { frameworkSections, type FrameworkSection, foundationalPrinciples } from '@/lib/framework-data';
 import { Card, CardContent } from '@/components/ui/card';
 import { useIsMobile } from '@/hooks/use-mobile';
-import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel';
-import Autoplay from "embla-carousel-autoplay";
 import { cn } from '@/lib/utils';
 
 
@@ -31,10 +29,6 @@ const Legend = () => (
 );
 
 const FoundationalPrinciples = () => {
-    const plugin = useRef(
-      Autoplay({ delay: 2000, stopOnInteraction: true })
-    );
-
     const principlesWithColors = useMemo(() => {
         const principleColors = [
             'bg-principle-1', 'bg-principle-2', 'bg-principle-3',
@@ -48,33 +42,28 @@ const FoundationalPrinciples = () => {
 
     return (
         <div className="w-full mt-8">
-            <h2 className="text-xl font-bold text-center mb-4 text-primary-foreground">Foundational Guiding Principles</h2>
-            <p className="text-center text-xs text-primary-foreground mb-2">
-                Scroll through to see them all.
+            <h2 className="text-2xl font-bold text-center mb-2 text-primary-foreground">
+                Foundational Guiding Principles
+            </h2>
+            <p className="text-center text-sm text-primary-foreground/80 mb-6">
+                Explore each principle below. They are displayed together for quick comparison.
             </p>
-            <Carousel
-                plugins={[plugin.current]}
-                className="w-full"
-                onMouseEnter={plugin.current.stop}
-                onMouseLeave={plugin.current.reset}
-            >
-                <CarouselContent className="-ml-2">
-                    {principlesWithColors.map((principle) => (
-                        <CarouselItem key={principle.id} className="pl-2 basis-auto">
-                            <div className="p-1">
-                                <div
-                                    className={cn(
-                                        "flex-shrink-0 p-2 px-3 rounded-lg shadow-md text-primary",
-                                        principle.colorClass
-                                    )}
-                                >
-                                    <p className="text-xs font-semibold">{principle.name}</p>
-                                </div>
-                            </div>
-                        </CarouselItem>
-                    ))}
-                </CarouselContent>
-            </Carousel>
+            <div className="grid w-full grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                {principlesWithColors.map((principle) => (
+                    <div
+                        key={principle.id}
+                        className={cn(
+                            "rounded-2xl border border-primary/15 p-6 text-center shadow-lg transition hover:-translate-y-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary",
+                            principle.colorClass
+                        )}
+                        style={{ alignContent: 'center' }}
+                    >
+                        <p className="text-xl font-extrabold leading-snug text-primary-foreground sm:text-2xl">
+                            {principle.name}
+                        </p>
+                    </div>
+                ))}
+            </div>
         </div>
     );
 };
@@ -123,13 +112,17 @@ export default function Home() {
               onSectionSelect={handleSectionSelect}
               size={isMobile ? 380 : 600}
             />
-            {isMobile && PrinciplesComponent}
           </div>
           <aside className="w-full lg:w-1/2 lg:mt-8 lg:ml-8">
             <SectionDetails
               section={activeSectionInfo?.section ?? null}
               isPink={activeSectionInfo?.isPink ?? false}
             />
+            {isMobile && (
+              <div className="mt-6 w-full">
+                {PrinciplesComponent}
+              </div>
+            )}
             <Legend />
           </aside>
         </div>

@@ -88,6 +88,13 @@
     background-size: cover;
     background-position: center left;
   }
+
+  @media (max-width: 768px) {
+    body {
+      background-image: none;
+      background-color: #fbe5f2;
+    }
+  }
 }
 
 /* Legend key classes for page.tsx */
